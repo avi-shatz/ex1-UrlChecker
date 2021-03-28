@@ -5,22 +5,25 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-        Scanner scanner = null;
-        String[] inputArgs = null;
+        ConsoleReader consoleReader = new ConsoleReader();
+        CommandContainer commandContainer = new CommandContainer();
+        Command command = null;
+        String inputLine[];
 
-        System.out.println("Please enter a command!");
-
-        try {
-            scanner = new Scanner(System.in);
-            inputArgs = scanner.nextLine().split(" ");
-
-            System.out.println("The arguments you have entered: ");
-            for (String s : inputArgs) {
-                System.out.println(s);
-
+        while (true) {
+            System.out.println("Please enter a command and its arguments in one line");
+            try {
+                inputLine = consoleReader.getLine();
+                command = commandContainer.get(inputLine[0]);
+                command.execute(inputLine);
             }
-        } catch (Exception e) {
-            System.out.println(e);
+            catch (InvalidCommandException e) {
+                System.out.println("invalid command");
+            }
+            catch (Exception e) {
+                /*System.out.println(e.getMessage());*/
+                System.out.println("error");
+            }
         }
     }
 }
