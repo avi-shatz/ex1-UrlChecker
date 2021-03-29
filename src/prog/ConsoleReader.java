@@ -10,7 +10,7 @@ public class ConsoleReader implements LineReader{
 
         try {
             scanner = new Scanner(System.in);
-            inputLine = scanner.nextLine().split(" ");
+            inputLine = scanner.nextLine().trim().split(" ");
 
         } catch (Exception e) {
             throw new LineReaderException(e.getMessage());
