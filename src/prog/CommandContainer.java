@@ -10,6 +10,9 @@ public class CommandContainer {
         hm = new HashMap<String, Command>();
         hm.put("q", new ExitCommand());
         hm.put("t", new TypeCommand());
+        hm.put("w", new WordSearchCommand());
+        hm.put("i", new ImgCommand());
+        hm.put("l", new LanguageCommand());
     }
 
     public Command get(String commandName) throws InvalidCommandException {
