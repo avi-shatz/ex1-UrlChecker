@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ex1 - Readme</title>
+</head>
+<body>
+<h1>
+    Ex1 - UrlChecker
+</h1>
+
+<a href="./api/index.html">Javadoc link</a> <br><br>
+
+<h3>Submission details</h3>
+<p>
+    Name: Avigdor Shatz <br>
+    Email: 140190a@gmail.com <br>
+    ID: 313134777 <br>
+</p>
+
+<h3>Running the program</h3>
+<p>
+    To run the program just run the Main class from the prog package.
+</p>
+
+<h3>Adding a command</h3>
+<p>
+    The way I wrote the program makes it very simple to add a command. <br>
+    To add a new command just add a new class that implements the command interface, <br>
+    then add the following line into the CommandContainer constructor: <br>
+    <code>hm.put([command], new [NewCommand]());</code>
+</p>
+
+<h3>English Checker Algorithm</h3>
+<p>
+    The EnglishChecker class implements the first Algorithm suggested in the exercise. <br>
+    First, we build the English Frequency Table and the given text Frequency table. <br>
+    then, we compare the two tables and if the variance is below a certain threshold, <br>
+    then the given text is very likely to be in english.
+</p>
+
+<h3>Test Package</h3>
+<p>
+    I included a test package that enables easy testing.  <br>
+    You can ignore it, or use it to test my program. :)
+</p>
+
+
+</body>
+</html>

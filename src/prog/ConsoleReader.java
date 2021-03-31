@@ -1,12 +1,15 @@
 package prog;
 import java.util.Scanner;
 
+/**
+ * Implements the LineReader Interface by reading input from the console.
+ */
 public class ConsoleReader implements LineReader{
 
     @Override
     public String[] getLine() throws LineReaderException {
-        Scanner scanner = null;
-        String inputLine[];
+        Scanner scanner;
+        String[] inputLine;
 
         try {
             scanner = new Scanner(System.in);

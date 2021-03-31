@@ -1,34 +1,28 @@
 package prog;
 
-import org.jsoup.Connection;
-import org.jsoup.Jsoup;
-import org.jsoup.nodes.Document;
-import org.jsoup.nodes.Element;
-
-import java.io.*;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
+import java.io.IOException;
 import java.util.Set;
 
+/**
+ * Checking if all the words in a file present in the url content.
+ */
 public class WordSearchCommand  implements Command {
 
+    /**
+     * This command Checks if all the words in a file present in the url content.
+     * @param args Array of strings with the command, url and the file path.
+     * @return True if the content contains all the words from the file, False otherwise.
+     * @throws BadUrlException In case the url is not valid.
+     * @throws IOException In case of a problem with reading files.
+     */
     @Override
     public boolean execute(String[] args) throws BadUrlException, IOException {
 
         try {
-            if (args.length < 2) {throw new BadUrlException();}
-
-            Connection.Response res = Jsoup.connect(args[1])
-                    .ignoreContentType(true).execute();
-            String type = res.contentType();
-
+            String text = StringUtil.getUrlText(args);
+            if (text == null) {return false;}
             if (args.length < 3) {return false;}
 
-            if (!type.startsWith("text/")) {return false;}
-
-            Document doc = res.parse();
-            String text = doc.body().text();
             String wordsToSearchStr = StringUtil.getFileAsString(args[2]);
 
             if (wordsToSearchStr.trim().length() == 0) {return true;}
